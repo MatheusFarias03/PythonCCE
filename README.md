@@ -1,7 +1,14 @@
 # Python CCE
 Este projeto serve como tutorial para enviar imagens do docker para o SWR (Software Repository), para utilizá-las no CCE (Cloud Container Engine) e conectar os containers ao RDS (Relational Database System).
 
+Pré-requisitos: verifique se sua __Security Group__ possui a porta 5000 habilitada em __Inbound Rules__ e um banco de dados __PostgreSQL__ criado com o __RDS__. Para mais informações, leia o arquivo [__SETUP.MD__](SETUP.md).
+
+Diagrama:
+
+![Diagrama](./images/FlaskCCEDiagram.jpg)
+
 ## 1. Enviar Imagens ao SWR (Software Repository)
+SoftWare Repository for Container (SWR) permite que você gerencie com facilidade o ciclo de vida completo de imagens de contêineres, além de simplificar a implementação segura de imagens para suas aplicações.
 1. Primeiramente, em sua máquina, instale o Docker:
     ```
     curl -fsSL get.docker.com -o get-docker.sh
@@ -46,5 +53,21 @@ Este projeto serve como tutorial para enviar imagens do docker para o SWR (Softw
     docker push [endereço_repositório]/[nome_organização]/[nome_imagem_2:tag_2]
     ```
 
-## 2. Criar um RDS PostgreSQL
+## 2. Configurar o CCE (Cloud Container Engine)
+O CCE é um serviço de Kubernetes hospedado para criar, executar e escalar aplicações em contêiner.
 
+1. Existem duas opções para os clusters __CCE Turbo Cluster__ e __CCE Standard Cluster__. O Turbo é mais adequado para serviços de alta performance, mas há limitação nos flavors dos containers. Já o Standard não possui essa limitação. Clique em __Buy CCE Standard Cluster__.
+
+    ![Select Standard](/images/SelectCCEStandard.PNG)
+
+2. Configure o CCE seguindo as imagens abaixo.
+
+    Basic Settings
+    ![Basic Settings](./images/BasicSettingsCCE.PNG)
+
+    Network Settings
+    ![Network Settings](./images/NetworkSettings.PNG)
+
+    Clique em __Next: Select Add-on__, __Next: Add-on Configuration__ e então em __Next: Confirm Configuration__.
+
+    Na página __Confirm Configuration__, clique em "I have read and understand the preceding information". Clique em __Submit__ em seguida.
