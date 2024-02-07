@@ -19,8 +19,8 @@ SoftWare Repository for Container (SWR) permite que você gerencie com facilidad
 
 2. Clone o repositório e faça o build da imagem deste projeto:
     ```
-    git clone https://github.com/MatheusFarias03/PythonGaussDB.git
-    docker build -t python_gaussdb .
+    git clone https://github.com/MatheusFarias03/PythonCCE.git
+    docker build -t python_cce .
     ```
 
 3. Crie uma organização no console do SWR. Uma organização é utilizada para isolar imagens e conceder diferentes permissões de acesso, como: leitura, edição e gestão, a diferentes utilizadores numa conta.
