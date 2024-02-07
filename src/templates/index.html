@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+</head>
+
+<body>
+    <h1>Todo List</h1>
+    <form action="/add" method="post">
+        <input type="text" name="task" placeholder="Add a new task" required>
+        <button type="submit">Add Task</button>
+    </form>
+    <ul>
+        {% for todo in todos %}
+            <li>
+                {{ todo[1] }}
+                <form action="/delete/{{ todo[0] }}" method="post" style="display: inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
