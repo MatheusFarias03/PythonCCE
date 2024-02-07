@@ -1,5 +1,5 @@
-# Python GaussDB
-Este projeto serve como tutorial para enviar imagens do docker para o SWR (Software Repository), para utilizá-las no CCE (Cloud Container Engine) e conectar os containers ao GaussDB.
+# Python CCE
+Este projeto serve como tutorial para enviar imagens do docker para o SWR (Software Repository), para utilizá-las no CCE (Cloud Container Engine) e conectar os containers ao RDS (Relational Database System).
 
 ## 1. Enviar Imagens ao SWR (Software Repository)
 1. Primeiramente, em sua máquina, instale o Docker:
@@ -45,3 +45,6 @@ Este projeto serve como tutorial para enviar imagens do docker para o SWR (Softw
     ```
     docker push [endereço_repositório]/[nome_organização]/[nome_imagem_2:tag_2]
     ```
+
+## 2. Criar um RDS PostgreSQL
+
