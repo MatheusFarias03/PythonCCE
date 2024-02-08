@@ -1,9 +1,9 @@
 import psycopg2
-from .config import *
+import os
 
 # Database connection.
-db_url = f'postgresql://{user}:{password}@{ip_address}/{db_name}'
-connection = psycopg2.connect(db_url)
+database_url = os.environ.get('DATABASE_URL')
+connection = psycopg2.connect(database_url)
 
 # Get every to-do item.
 def get_todos():

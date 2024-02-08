@@ -23,4 +23,7 @@ def delete_todo(todo_id):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port='5000')
+    try:
+        app.run(host='0.0.0.0', port='5000')
+    except Exception as e:
+        print(f'\nERROR: {e}\n')

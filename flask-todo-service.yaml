@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-todo-service
+  namespace: default
+  annotations:
+    kubernetes.io/elb.class: union
+    kubernetes.io/elb.autocreate:
+        '{
+            "type": "public",
+            "bandwidth_name": "cce-flask-todo",
+            "bandwidth_chargemode": "bandwidth",
+            "bandwidth_size": 5,
+            "bandwidth_sharetype": "PER",
+            "eip_type": "5_bgp"
+        }'
+spec:
+  selector:
+    app: flask-todo
+  externalTrafficPolicy: Cluster
+  ports:
+    - name: cce-service-flask-todo
+      targetPort: 5000
+      nodePort: 0
+      port: 5000
+      protocol: TCP
+  type: LoadBalancer
+

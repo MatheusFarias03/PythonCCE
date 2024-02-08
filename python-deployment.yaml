@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-todo
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask-todo
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: flask-todo
+        version: v1
+    spec:
+      containers:
+        - name: container-1
+          image: swr.sa-brazil-1.myhuaweicloud.com/flask-org/flask-todo:latest
+          env:
+            - name: DATABASE_URL
+              value: postgresql://root:__Huawei1234!__@1.178.45.47/todo_list
+          resources:
+            requests:
+              cpu: 250m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 128Mi
+      imagePullSecrets:
+        - name: default-secret
+
