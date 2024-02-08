@@ -10,11 +10,7 @@ COPY . /app
 # Install any needed dependencies specified in requirements.txt
 RUN apt-get update \
     && apt-get install -y libpq-dev gcc \
-    && pip install --no-cache-dir -r src/requirements.txt \
-    && export DB_USER='root' \
-    && export DB_PASSWORD='__Huawei1234!__' \
-    && export DB_NAME='todo_list' \
-    && export export DB_HOST='1.178.45.47'
+    && pip install --no-cache-dir -r src/requirements.txt
 
 # Expose the port Flask will run on
 EXPOSE 5000
